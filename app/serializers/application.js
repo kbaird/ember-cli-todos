@@ -1,6 +1,10 @@
-import DS from 'ember-data';
+// app/serializers/application.js
 
-var serializer;
-serializer = DS.JSONAPISerializer.extend({});
+import JSONAPISerializer from 'ember-data/serializers/json-api';
+import { singularize } from 'ember-inflector';
 
-export default serializer;
+export default JSONAPISerializer.extend({
+  payloadKeyFromModelName(modelName) {
+    return singularize(modelName);
+  }
+});
