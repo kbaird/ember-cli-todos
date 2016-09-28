@@ -52,7 +52,7 @@ export default Component.extend({
     },
 
     completeAll() {
-      let todos = this.get('data');
+      let todos = this.get('todos');
       let allAreDone = this.get('allAreDone');
 
       todos.setEach('isCompleted', !allAreDone);
